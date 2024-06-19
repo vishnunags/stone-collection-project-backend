@@ -20,12 +20,12 @@ jobs:
 
       - name: Copy files to EC2
         run: |
-          scp -r -o StrictHostKeyChecking=no . /home/ec2-user/stone-collection-project/stone-collection-project-backend
+          scp -r -o StrictHostKeyChecking=no . /stone-collection-project/stone-collection-project-backend
 
       - name: Install dependencies and restart PM2
         run: |
           ssh -o StrictHostKeyChecking=no ec2-user@ip-172-31-35-85 << 'EOF'
-            cd /home/ec2-user/stone-collection-project/stone-collection-project-backend
+            cd /stone-collection-project/stone-collection-project-backend
             npm install
             pm2 restart test.js
           EOF
