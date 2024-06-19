@@ -16,7 +16,7 @@ module.exports = {
     async getAllProducts() {
         try {
             const [rows] = await pool.query('SELECT * FROM products');
-            return "Hey. Deployment is working";
+            return rows;
         } catch (error) {
             throw error;
         }
